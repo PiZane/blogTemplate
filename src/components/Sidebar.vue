@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="sidebar">
     <header>
-      <img :src="src" :alt="alt">
+      <img v-on:hover="" :src="src" :alt="alt">
       <h1>{{name}}</h1>
       <h2>{{intro}}</h2>
     </header>
@@ -53,59 +53,57 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+  $white: #EEE;
+  $black: #222831;
+  $lineTop: #3c4149;
+  $lineBottom: #525965;
+  $radius: 8px 0 0 8px;
   .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     width: 240px;
     height: 100%;
-    color: #EEE;
-    background-color: #222831;
-  }
-
-  header {
-    padding: 16px;
-    text-align: center;
-  }
-
-  img {
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-    height: 50%;
-    border-radius: 100%;
-  }
-
-  ul {
-    border-top: 1px solid #3c4149;
-    border-bottom: 1px solid #525965;
-    list-style-type: none;
-  }
-
-  li {
-    display: block;
-    height: 56px;
-    line-height: 56px;
-    text-align: center;
-    border-top: 1px solid #525965;
-    border-bottom: 1px solid #3c4149;
-    cursor: pointer;
-  }
-
-  li:hover {
-    border-radius: 8px 0 0 8px;
-    background-color: #3c4149;
-    transition: 0.3s;
-  }
-
-  .active {
-    color: #222831;
-    background-color: #EEE;
-    border-radius: 8px 0 0 8px;
-  }
-
-  .active:hover {
-    background-color: #EEE;
+    color: $white;
+    background-color: $black;
+    header {
+      padding: 16px;
+      text-align: center;
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 50%;
+        box-shadow: 0px 0px 16px 3px rgba(0,0,0,0.8);
+        border-radius: 100%;
+        transform: scale(1) rotate(360deg) skewY(0deg) skewX(0deg);
+      }
+    }
+    nav {
+      ul {
+        border-top: 1px solid $lineTop;
+        border-bottom: 1px solid $lineBottom;
+        list-style-type: none;
+        li {
+          display: block;
+          height: 56px;
+          line-height: 56px;
+          text-align: center;
+          border-top: 1px solid $lineBottom;
+          border-bottom: 1px solid $lineTop;
+          cursor: pointer;
+        }
+        li:hover:not(.active) {
+          border-radius: $radius;
+          background-color: $lineTop;
+          transition: 0.3s;
+        }
+        .active {
+          color: #222831;
+          background-color: $white;
+          border-radius: $radius;
+        }
+      }
+    }
   }
 </style>
