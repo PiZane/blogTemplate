@@ -7,12 +7,11 @@
     </header>
     <nav>
       <ul>
-        <li :class="{active: menu.id === activeId}" v-for="menu in menus" v-on:click="selected(menu.id)">{{menu.name}}</li>
+        <li :class="{active: menu.id === activeId}"
+        v-for="menu in menus"
+        v-on:click="selected(menu.id)">{{menu.name}}</li>
       </ul>
     </nav>
-    <footer>
-
-    </footer>
   </div>
 </template>
 
@@ -22,6 +21,7 @@ export default {
   methods: {
     selected: function (id) {
         this.activeId = id;
+        this.$parent.$emit('changeCatalog', id);
     }
   },
   data () {
@@ -47,6 +47,11 @@ export default {
           url: './category/3',
           name: '分类二',
         },
+        {
+          id: 4,
+          url: './category/4',
+          name: '分类三',
+        }
       ]
     }
   }
@@ -56,8 +61,7 @@ export default {
 <style lang="scss" scoped>
   $white: #EEE;
   $black: #222831;
-  $lineTop: #3c4149;
-  $lineBottom: #525965;
+  $gray:  #BBB;
   $radius: 8px 0 0 8px;
   .sidebar {
     position: fixed;
@@ -76,32 +80,39 @@ export default {
         width: 50%;
         box-shadow: 0px 0px 16px 3px rgba(0,0,0,0.8);
         border-radius: 100%;
-        transform: scale(1) rotate(360deg) skewY(0deg) skewX(0deg);
       }
     }
     nav {
+      overflow: hidden;
       ul {
-        border-top: 1px solid $lineTop;
-        border-bottom: 1px solid $lineBottom;
         list-style-type: none;
+        padding: 5px 0 5px 0;
         li {
           display: block;
-          height: 56px;
-          line-height: 56px;
+          margin-top: 12px;
+          margin-left: 15%;
+          width: 85%;
+          height: 54px;
+          line-height: 54px;
           text-align: center;
-          border-top: 1px solid $lineBottom;
-          border-bottom: 1px solid $lineTop;
+          color: $gray;
+          background-color: #393E46;
+          border-radius: $radius;
+          transition: transform .5s;
           cursor: pointer;
+          box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
         }
         li:hover:not(.active) {
-          border-radius: $radius;
-          background-color: $lineTop;
-          transition: 0.3s;
+          color: $white;
+          transform: translateX(10%);
+          transition: transform .8s;
         }
         .active {
-          color: #222831;
+          color: $black;
           background-color: $white;
           border-radius: $radius;
+          transform: translateX(10%);
+          transition: transform .5s;
         }
       }
     }
