@@ -21,7 +21,7 @@ export default {
   methods: {
     selected: function (id) {
         this.activeId = id;
-        this.$parent.$emit('changeCatalog', id);
+        this.$parent.$emit('menuSelected', id);
     }
   },
   data () {
@@ -62,57 +62,89 @@ export default {
   $white: #EEE;
   $black: #222831;
   $gray:  #BBB;
+  $size: 8px;
   $radius: 8px 0 0 8px;
+  $sidebarWidth: 240px;
+  $menuTransition: transform ease .6s;
   .sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 240px;
+    width: $sidebarWidth;
     height: 100%;
     color: $white;
     background-color: $black;
     header {
-      padding: 16px;
+      padding: $size*2;
       text-align: center;
       img {
         display: block;
         margin: 0 auto;
         width: 50%;
-        box-shadow: 0px 0px 16px 3px rgba(0,0,0,0.8);
+        box-shadow: 0px 0px $size*2 $size/2 rgba(0,0,0,0.8);
         border-radius: 100%;
       }
     }
     nav {
       overflow: hidden;
+      padding: $size*2 0;
       ul {
+        overflow: hidden;
         list-style-type: none;
-        padding: 5px 0 5px 0;
+        padding: $size 0;
         li {
           display: block;
-          margin-top: 12px;
-          margin-left: 15%;
-          width: 85%;
-          height: 54px;
-          line-height: 54px;
+          float: right;
+          margin: $size 0;
+          width: 80%;
+          height: $size*7;
+          line-height: $size*7;
           text-align: center;
           color: $gray;
           background-color: #393E46;
           border-radius: $radius;
-          transition: transform .5s;
+          transition: $menuTransition;
           cursor: pointer;
-          box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+          box-shadow: 0px 0px $size 0px rgba(0,0,0,0.75);
         }
         li:hover:not(.active) {
           color: $white;
           transform: translateX(10%);
-          transition: transform .8s;
+          transition: $menuTransition;
         }
         .active {
+          position: relative;
           color: $black;
           background-color: $white;
           border-radius: $radius;
           transform: translateX(10%);
-          transition: transform .5s;
+          transition: none;
+        }
+        .active:before {
+          content: '';
+          position: absolute;
+          box-sizing: padding-box;
+          top: -$size;
+          right: calc(10% - 4px);
+          width: $size;
+          height: $size;
+          background: transparent;
+          border-radius: 0 0 $size 0;
+          border-right: $size/2 solid $white;
+          border-bottom: $size/2 solid $white;
+        }
+        .active:after {
+          box-sizing: padding-box;
+          position: absolute;
+          bottom: -$size;
+          right: calc(10% - 4px);
+          width: $size;
+          height: $size;
+          content: '';
+          background: transparent;
+          border-radius: 0 $size 0 0;
+          border-top: $size/2 solid $white;
+          border-right: $size/2 solid $white;
         }
       }
     }

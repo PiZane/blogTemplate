@@ -30,13 +30,10 @@ export default {
 }
 
 body {
-  background-color: #EEE;
-}
-
-#app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 18px;
+  background-color: #EEE;
 }
 </style>
