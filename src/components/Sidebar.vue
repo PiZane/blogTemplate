@@ -67,11 +67,7 @@ export default {
   $sidebarWidth: 240px;
   $menuTransition: transform ease .6s;
   .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: $sidebarWidth;
-    height: 100%;
     color: $white;
     background-color: $black;
     header {
@@ -86,15 +82,16 @@ export default {
       }
     }
     nav {
-      overflow: hidden;
       padding: $size*2 0;
+      overflow: hidden;
       ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: $size 0;
         overflow: hidden;
         list-style-type: none;
-        padding: $size 0;
         li {
-          display: block;
-          float: right;
           margin: $size 0;
           width: 80%;
           height: $size*7;
