@@ -15,10 +15,12 @@ export default {
     this.image.backgroundImage = this.left;
     this.$parent.$on('menuSelected', this.changeCatalog)
   },
-  data() {
+  data () {
     return {
       data: '默认',
-      left: 'url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNDg5MTI0MTYzOTAxIiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjE1MzYiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNTk2Ljk5MiAxMDIzLjgxOWgxNTYuMTMxbC0zMjYuMDU0LTUxMS44MTkgMzI2LjA1NC01MTEuODE5aC0xNTYuMTMxbC0zMjYuMTE0IDUxMS44MTl6IiBwLWlkPSIxNTM3IiBmaWxsPSIjNzA3MDcwIj48L3BhdGg+PC9zdmc+")',
+      isShow: true,
+      left: 'url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNDg5MjE3Nzg0MjI1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQyNjUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNjcxLjk2OCA5MTJjLTEyLjI4OCAwLTI0LjU3Ni00LjY3Mi0zMy45NTItMTQuMDQ4TDI4Ni4wNDggNTQ1Ljk4NGMtMTguNzUyLTE4LjcyLTE4Ljc1Mi00OS4xMiAwLTY3Ljg3MmwzNTEuOTY4LTM1MmMxOC43NTItMTguNzUyIDQ5LjEyLTE4Ljc1MiA2Ny44NzIgMCAxOC43NTIgMTguNzIgMTguNzUyIDQ5LjEyIDAgNjcuODcybC0zMTguMDE2IDMxOC4wNDggMzE4LjAxNiAzMTguMDE2YzE4Ljc1MiAxOC43NTIgMTguNzUyIDQ5LjEyIDAgNjcuODcyQzY5Ni41NDQgOTA3LjMyOCA2ODQuMjU2IDkxMiA2NzEuOTY4IDkxMnoiIHAtaWQ9IjQyNjYiIGZpbGw9IiM4YThhOGEiPjwvcGF0aD48L3N2Zz4=")',
+      right: 'url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNDg5MjE3ODkxNDE5IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ2MDMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNzYxLjA1NiA1MzIuMTI4YzAuNTEyLTAuOTkyIDEuMzQ0LTEuODI0IDEuNzkyLTIuODQ4IDguOC0xOC4zMDQgNS45Mi00MC43MDQtOS42NjQtNTUuNDI0TDM5OS45MzYgMTM5Ljc0NGMtMTkuMjY0LTE4LjIwOC00OS42MzItMTcuMzQ0LTY3Ljg3MiAxLjg4OC0xOC4yMDggMTkuMjY0LTE3LjM3NiA0OS42MzIgMS44ODggNjcuODcybDMxNi45NiAyOTkuODQtMzE1LjcxMiAzMDQuMjg4Yy0xOS4wNzIgMTguNC0xOS42NDggNDguNzY4LTEuMjQ4IDY3Ljg3MiA5LjQwOCA5Ljc5MiAyMS45ODQgMTQuNjg4IDM0LjU2IDE0LjY4OCAxMiAwIDI0LTQuNDggMzMuMzEyLTEzLjQ0bDM1MC4wNDgtMzM3LjM3NmMwLjY3Mi0wLjY3MiAwLjkyOC0xLjYgMS42LTIuMzA0IDAuNTEyLTAuNDggMS4wNTYtMC44MzIgMS41NjgtMS4zNDRDNzU3Ljc2IDUzOC44OCA3NTkuMiA1MzUuMzkyIDc2MS4wNTYgNTMyLjEyOHoiIHAtaWQ9IjQ2MDQiIGZpbGw9IiM4YThhOGEiPjwvcGF0aD48L3N2Zz4=")',
       image: {
         backgroundImage: '',
       },
@@ -30,24 +32,33 @@ export default {
     },
     toggleSide: function () {
       this.$emit('toggleSide');
+      this.isShow = !this.isShow;
+      if (this.isShow) {
+        this.image.backgroundImage = this.left;
+      } else {
+        this.image.backgroundImage = this.right;
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+$small: "(max-width: 479px)";
 $white: #EEE;
 $black: #222831;
 $gray:  #D0D0D0;
 .catalog {
   position: relative;
-  width: 320px;
-  opacity: 0.5;
+  width: 350px;
+  @media #{$small} {
+    width: 60%;
+  }
   background-color: $white;
   border-right: 1px solid $gray;
   input {
     width: 100%;
-    height: 54px;
+    height: 64px;
     color: $black;
     background-color: $white;
     font: italic 20px arial,sans-serif;
@@ -80,7 +91,7 @@ $gray:  #D0D0D0;
     height: 64px;
     cursor: pointer;
     background-size: 100% 100%;
-    background-color: white;
+    background-color: #EFEFEF;
     background-repeat: no-repeat;
     border: 1px solid $gray;
     transition: .3s;

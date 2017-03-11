@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="sidebar">
+  <div class="navbar">
     <header>
       <img v-on:hover="" :src="src" :alt="alt">
       <h1>{{name}}</h1>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'sidebar',
+  name: 'navbar',
   methods: {
     selected: function (id) {
         this.activeId = id;
@@ -59,15 +59,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  $small: "(max-width: 479px)";
   $white: #EEE;
   $black: #222831;
   $gray:  #BBB;
   $size: 8px;
   $radius: 8px 0 0 8px;
-  $sidebarWidth: 240px;
   $menuTransition: transform ease .6s;
-  .sidebar {
-    width: $sidebarWidth;
+  .navbar {
+    width: 250px;
+    @media #{$small} {
+      width: 40%;
+    }
     color: $white;
     background-color: $black;
     header {
@@ -77,7 +80,7 @@ export default {
         display: block;
         margin: 0 auto;
         width: 50%;
-        box-shadow: 0px 0px $size*2 $size/2 rgba(0,0,0,0.8);
+        box-shadow: 0px 0px $size*2 $size/2 rgba(255,255,255,0.2);
         border-radius: 100%;
       }
     }

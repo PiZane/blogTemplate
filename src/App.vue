@@ -1,15 +1,17 @@
 <template>
-  <div id="app">
-    <div v-bind:class="{side:1, hide: isHideSide}">
-      <sidebar></sidebar>
-      <catalog v-on:toggleSide="toggleSide"></catalog>
-    </div>
+<div id="app">
+  <div v-bind:class="{side:1, hide: isHideSide}">
+    <navbar></navbar>
+    <catalog v-on:toggleSide="toggleSide"></catalog>
   </div>
+  <subject></subject>
+</div>
 </template>
 
 <script>
-import Sidebar from './components/Sidebar'
+import Navbar from './components/Navbar'
 import Catalog from './components/Catalog'
+import Subject from './components/Subject'
 
 export default {
   name: 'app',
@@ -28,13 +30,17 @@ export default {
     }
   },
   components: {
-    Sidebar,
-    Catalog
+    Navbar,
+    Catalog,
+    Subject
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+$small: "(max-width: 479px)";
+$larger: "(min-width: 480px)";
+
 * {
   margin: 0;
   padding: 0;
@@ -46,29 +52,45 @@ html {
 }
 
 body {
+  min-width: 1280px;
   height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 18px;
   background-color: #EEE;
+  @media #{$small} {
+    display: block;
+    min-width: 100%;
+  }
 }
 
 #app {
   height: 100%;
+  min-height: 640px;
+  display: flex;
+  @media #{$small} {
+    display: block;
+  }
 }
 
 .side {
   display: flex;
   align-items: stretch;
-  width: 560px;
+  width: 600px;
   height: 100%;
   min-height: 640px;
-  transition: .8s;
+  transition: ease-out 1s;
+  @media #{$small} {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
 }
 
 .hide {
-  margin-left: -560px;
-  transition: .8s;
+  transform: translateX(-100%);
+  transition: ease-out 1s;
 }
 </style>
