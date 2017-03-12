@@ -26,22 +26,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$small: "(max-width: 479px)";
-$larger: "(min-width: 480px)";
+$phone: "(max-width: 767px)";
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
 $gray: #D0D0D0;
 
 main {
   width: 100%;
   height: 100%;
-  background-color: black;
+  @media #{$tablet} {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 article {
-  background-color: white;
   margin: 0 auto;
   height: 100%;
   max-width: 1024px;
-  border: 1px solid $gray;
+  @media #{$tablet} {
+    width: 60%;
+  }
 }
 
 </style>

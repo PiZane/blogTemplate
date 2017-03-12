@@ -1,8 +1,8 @@
 <template>
 <div id="app">
-  <div v-bind:class="{side:1, hide: isHideSide}">
+  <div v-bind:class="{side:1, show: isShow}">
     <navbar></navbar>
-    <catalog v-on:toggleSide="toggleSide"></catalog>
+    <catalog v-on:toggleSide="toggleSide" v-on:getArticle="getArticle"></catalog>
   </div>
   <subject></subject>
 </div>
@@ -17,16 +17,19 @@ export default {
   name: 'app',
   data () {
     return {
-      isHideSide: 0
+      isShow: 0
     }
   },
   methods: {
     toggleSide: function() {
-      if (this.isHideSide) {
-        this.isHideSide = 0;
+      if (this.isShow) {
+        this.isShow = 0;
       } else {
-        this.isHideSide = 1;
+        this.isShow = 1;
       }
+    },
+    getArticle: function (id) {
+        console.log(id);
     }
   },
   components: {
@@ -38,8 +41,9 @@ export default {
 </script>
 
 <style lang="scss">
-$small: "(max-width: 479px)";
-$larger: "(min-width: 480px)";
+$phone: "(max-width: 767px)";
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
 
 * {
   margin: 0;
@@ -52,15 +56,14 @@ html {
 }
 
 body {
-  min-width: 1280px;
+  min-width: 1024;
   height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 18px;
   background-color: #EEE;
-  @media #{$small} {
-    display: block;
+  @media #{$phone} {
     min-width: 100%;
   }
 }
@@ -69,7 +72,7 @@ body {
   height: 100%;
   min-height: 640px;
   display: flex;
-  @media #{$small} {
+  @media #{$phone} {
     display: block;
   }
 }
@@ -80,17 +83,24 @@ body {
   width: 600px;
   height: 100%;
   min-height: 640px;
-  transition: ease-out 1s;
-  @media #{$small} {
+  transition: ease-out .5s;
+  z-index: 1;
+  @media #{$phone} {
     position: absolute;
     width: 100%;
     top: 0;
     left: 0;
+    transform: translateX(-100%);
+  }
+  @media #{$tablet} {
+    display: block;
+    width: 250px;
+    transform: translateX(-240%);
   }
 }
 
-.hide {
-  transform: translateX(-100%);
-  transition: ease-out 1s;
+.show {
+  transform: translateX(0);
+  transition: ease-out .5s;
 }
 </style>

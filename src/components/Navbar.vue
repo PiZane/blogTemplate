@@ -59,7 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $small: "(max-width: 479px)";
+  $phone: "(max-width: 767px)";
+  $tablet: "(min-width: 768px) and (max-width: 1023px)";
+  $desktop: "(min-width: 1024px)";
   $white: #EEE;
   $black: #222831;
   $gray:  #BBB;
@@ -68,11 +70,12 @@ export default {
   $menuTransition: transform ease .6s;
   .navbar {
     width: 250px;
-    @media #{$small} {
-      width: 40%;
-    }
+    height: 100%;
     color: $white;
     background-color: $black;
+    @media #{$phone} {
+      width: 40%;
+    }
     header {
       padding: $size*2;
       text-align: center;
