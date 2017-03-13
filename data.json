@@ -2,7 +2,9 @@
   "setting":{
           "name":"zane",
           "intro":"intro",
-          "logo":"logo",
+          "src":"https://avatars0.githubusercontent.com/u/23761319?v=3&s=460",
+          "alt":"logo",
+          "activeMenu": 1,
           "menus":[
               {
                   "id":1,
@@ -43,5 +45,12 @@
               "category":2,
               "isRead":false
           }
-      ]
+      ],
+      "article": {
+        "id": 1,
+        "category": 1,
+        "title": "示例标题1",
+        "content": "随便的一点内容",
+        "tags": ["1", "2"]
+      }
 }

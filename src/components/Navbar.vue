@@ -1,14 +1,14 @@
 <template lang="html">
   <div class="navbar">
     <header>
-      <img v-on:hover="" :src="src" :alt="alt">
-      <h1>{{name}}</h1>
-      <h2>{{intro}}</h2>
+      <img :src="infos.src" :alt="infos.alt">
+      <h1>{{infos.name}}</h1>
+      <h2>{{infos.intro}}</h2>
     </header>
     <nav>
       <ul>
-        <li :class="{active: menu.id === activeId}"
-        v-for="menu in menus"
+        <li :class="{active: menu.id === infos.activeMenu}"
+        v-for="menu in infos.menus"
         v-on:click="selected(menu.id)">{{menu.name}}</li>
       </ul>
     </nav>
@@ -18,41 +18,20 @@
 <script>
 export default {
   name: 'navbar',
+  created () {
+    this.$http.get('/api/setting').then(response => {
+      this.infos = response.body.data;
+    });
+  },
   methods: {
     selected: function (id) {
-        this.activeId = id;
+        this.infos.activeMenu = id;
         this.$parent.$emit('menuSelected', id);
     }
   },
   data () {
     return {
-      src: 'https://avatars0.githubusercontent.com/u/23761319?v=3&s=460',
-      alt: 'logo',
-      name: 'zane',
-      intro: 'intro',
-      activeId: 1,
-      menus: [
-        {
-          id: 1,
-          url: './category/1',
-          name: '全部文章',
-        },
-        {
-          id: 2,
-          url: './category/2',
-          name: '分类一',
-        },
-        {
-          id: 3,
-          url: './category/3',
-          name: '分类二',
-        },
-        {
-          id: 4,
-          url: './category/4',
-          name: '分类三',
-        }
-      ]
+      infos: {}
     }
   }
 }
@@ -86,6 +65,15 @@ export default {
         box-shadow: 0px 0px $size*2 $size/2 rgba(255,255,255,0.2);
         border-radius: 100%;
       }
+      img:hover {
+        animation: rotate 1s linear infinite;
+      }
+      @keyframes rotate
+      {
+        0% {transform:rotate(0deg);}
+        50% {transform:rotate(180deg);}
+        100% {transform:rotate(360deg);}
+      }
     }
     nav {
       padding: $size*2 0;
@@ -96,7 +84,6 @@ export default {
         align-items: flex-end;
         padding: $size 0;
         overflow: hidden;
-        list-style-type: none;
         li {
           margin: $size 0;
           width: 80%;

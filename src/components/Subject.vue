@@ -2,13 +2,15 @@
   <main>
     <article>
       <header>
-        <h3></h3>
+        <h1>{{article.title}}</h1>
       </header>
       <div class="content">
-        <p>123</p>
+        {{article.content}}
       </div>
       <footer>
-
+        <ul>
+          <li v-for="tag in article.tags">{{tag}}</li>
+        </ul>
       </footer>
     </article>
   </main>
@@ -17,9 +19,19 @@
 <script>
 export default {
   name: 'subject',
+  created: function () {
+    this.$parent.$on('articleSelected', this.changeArticle)
+  },
   data () {
     return {
-      data: 1
+      article: false,
+    }
+  },
+  methods: {
+    changeArticle: function (id) {
+      this.$http.get('/api/article').then(response => {
+        this.article = response.body.data;
+      });
     }
   }
 }
@@ -39,14 +51,26 @@ main {
     top: 0;
     left: 0;
   }
+  overflow: scroll;
 }
 
 article {
   margin: 0 auto;
+  padding: 16px 32px;
   height: 100%;
   max-width: 1024px;
+  font-size: 20px;
   @media #{$tablet} {
     width: 60%;
+  }
+  h1 {
+    font-size: 42px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+  h3 {
+    font-size: 30px;
   }
 }
 

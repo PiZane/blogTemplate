@@ -25,12 +25,26 @@ var app = express()
 ///////////////////////////////////////
 var appData = require('../data.json');
 var articles = appData.articles;
+var article  = appData.article;
+var setting  = appData.setting;
 
 var apiRouter = express.Router();
 apiRouter.get('/articles', function(req, res){
   res.json({
     errno: 0,
     data: articles
+  })
+});
+apiRouter.get('/article', function(req, res){
+  res.json({
+    errno: 0,
+    data: article
+  })
+});
+apiRouter.get('/setting', function(req, res){
+  res.json({
+    errno: 0,
+    data: setting
   })
 });
 app.use("/api", apiRouter);

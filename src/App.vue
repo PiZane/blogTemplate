@@ -2,7 +2,7 @@
 <div id="app">
   <div v-bind:class="{side:1, show: isShow}">
     <navbar></navbar>
-    <catalog v-on:toggleSide="toggleSide" v-on:getArticle="getArticle"></catalog>
+    <catalog v-on:toggleSide="toggleSide"></catalog>
   </div>
   <subject></subject>
 </div>
@@ -27,9 +27,6 @@ export default {
       } else {
         this.isShow = 1;
       }
-    },
-    getArticle: function (id) {
-        console.log(id);
     }
   },
   components: {
@@ -49,6 +46,7 @@ $desktop: "(min-width: 1024px)";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style-type: none;
 }
 
 html {
