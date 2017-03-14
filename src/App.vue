@@ -54,16 +54,13 @@ html {
 }
 
 body {
-  min-width: 1024;
+  width: 100%;
   height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 18px;
   background-color: #EEE;
-  @media #{$phone} {
-    min-width: 100%;
-  }
 }
 
 #app {
@@ -91,14 +88,17 @@ body {
     transform: translateX(-100%);
   }
   @media #{$tablet} {
-    display: block;
-    width: 250px;
-    transform: translateX(-240%);
+    transform: translateX(-100%);
   }
 }
 
 .show {
   transform: translateX(0);
   transition: ease-out .5s;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+  background-color: #BBB;
 }
 </style>

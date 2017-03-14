@@ -6,6 +6,7 @@
       </header>
       <div class="content">
         {{article.content}}
+        1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
       </div>
       <footer>
         <ul>
@@ -51,16 +52,16 @@ main {
     top: 0;
     left: 0;
   }
-  overflow: scroll;
+  overflow: auto;
 }
 
 article {
-  margin: 0 auto;
   padding: 16px 32px;
   height: 100%;
   max-width: 1024px;
   font-size: 20px;
   @media #{$tablet} {
+    margin: 0 auto;
     width: 60%;
   }
   h1 {

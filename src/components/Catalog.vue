@@ -5,6 +5,7 @@
       <li :class="{active: article.id === activeArticle}"
       v-for="article in articles"
       v-on:click="selected(article.id)">{{article.title}}</li>
+      <li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li>
     </ul>
     <i class="left" v-show="isShow" v-on:click="toggleSide"></i>
     <i class="right" v-show="!isShow" v-on:click="toggleSide"></i>
@@ -43,11 +44,6 @@ export default {
     toggleSide: function () {
       this.$emit('toggleSide');
       this.isShow = !this.isShow;
-      if (this.isShow) {
-
-      } else {
-
-      }
     },
     selected: function (id) {
       this.activeArticle = id;
@@ -69,8 +65,6 @@ $gray:  #D0D0D0;
   width: 350px;
   color: $black;
   background-color: rgba(240,240,240,0.8);
-  border-right: 1px solid $gray;
-  z-index: -1;
   @media #{$phone} {
     width: 60%;
   }
@@ -88,6 +82,7 @@ $gray:  #D0D0D0;
     font: italic 20px arial,sans-serif;
     border: none;
     border-bottom: 2px solid $gray;
+    border-right: 1px solid $gray;
     padding-left: 10px;
   }
   input:focus {
@@ -95,6 +90,9 @@ $gray:  #D0D0D0;
   }
   ul {
     list-style-type: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100% - 64px);
     li {
       display: block;
       padding: 0 16px;
@@ -138,15 +136,11 @@ $gray:  #D0D0D0;
     transition: .3s;
   }
   .left {
-    right: -1px;
+    right: 0px;
     border-radius: 64px 0 0 64px;
     background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNDg5MjE3Nzg0MjI1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQyNjUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNjcxLjk2OCA5MTJjLTEyLjI4OCAwLTI0LjU3Ni00LjY3Mi0zMy45NTItMTQuMDQ4TDI4Ni4wNDggNTQ1Ljk4NGMtMTguNzUyLTE4LjcyLTE4Ljc1Mi00OS4xMiAwLTY3Ljg3MmwzNTEuOTY4LTM1MmMxOC43NTItMTguNzUyIDQ5LjEyLTE4Ljc1MiA2Ny44NzIgMCAxOC43NTIgMTguNzIgMTguNzUyIDQ5LjEyIDAgNjcuODcybC0zMTguMDE2IDMxOC4wNDggMzE4LjAxNiAzMTguMDE2YzE4Ljc1MiAxOC43NTIgMTguNzUyIDQ5LjEyIDAgNjcuODcyQzY5Ni41NDQgOTA3LjMyOCA2ODQuMjU2IDkxMiA2NzEuOTY4IDkxMnoiIHAtaWQ9IjQyNjYiIGZpbGw9IiM4YThhOGEiPjwvcGF0aD48L3N2Zz4=");
   }
   .right {
-    position: fixed;
-    @media #{$tablet} {
-      left: 600px;
-    }
     right: -32px;
     border-radius: 0 64px 64px 0;
     background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNDg5MjE3ODkxNDE5IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ2MDMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNzYxLjA1NiA1MzIuMTI4YzAuNTEyLTAuOTkyIDEuMzQ0LTEuODI0IDEuNzkyLTIuODQ4IDguOC0xOC4zMDQgNS45Mi00MC43MDQtOS42NjQtNTUuNDI0TDM5OS45MzYgMTM5Ljc0NGMtMTkuMjY0LTE4LjIwOC00OS42MzItMTcuMzQ0LTY3Ljg3MiAxLjg4OC0xOC4yMDggMTkuMjY0LTE3LjM3NiA0OS42MzIgMS44ODggNjcuODcybDMxNi45NiAyOTkuODQtMzE1LjcxMiAzMDQuMjg4Yy0xOS4wNzIgMTguNC0xOS42NDggNDguNzY4LTEuMjQ4IDY3Ljg3MiA5LjQwOCA5Ljc5MiAyMS45ODQgMTQuNjg4IDM0LjU2IDE0LjY4OCAxMiAwIDI0LTQuNDggMzMuMzEyLTEzLjQ0bDM1MC4wNDgtMzM3LjM3NmMwLjY3Mi0wLjY3MiAwLjkyOC0xLjYgMS42LTIuMzA0IDAuNTEyLTAuNDggMS4wNTYtMC44MzIgMS41NjgtMS4zNDRDNzU3Ljc2IDUzOC44OCA3NTkuMiA1MzUuMzkyIDc2MS4wNTYgNTMyLjEyOHoiIHAtaWQ9IjQ2MDQiIGZpbGw9IiM4YThhOGEiPjwvcGF0aD48L3N2Zz4=");
