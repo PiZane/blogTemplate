@@ -65,10 +65,11 @@ body {
 
 #app {
   height: 100%;
-  min-height: 640px;
   display: flex;
+  overflow: hidden;
   @media #{$phone} {
     display: block;
+    min-height: 100%;
   }
 }
 
@@ -77,7 +78,6 @@ body {
   align-items: stretch;
   width: 600px;
   height: 100%;
-  min-height: 640px;
   transition: ease-out .5s;
   z-index: 1;
   @media #{$phone} {
@@ -97,8 +97,4 @@ body {
   transition: ease-out .5s;
 }
 
-::-webkit-scrollbar {
-  width: 1px;
-  background-color: #BBB;
-}
 </style>

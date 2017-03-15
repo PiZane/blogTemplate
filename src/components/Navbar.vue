@@ -76,7 +76,7 @@ export default {
       }
     }
     nav {
-      padding: $size*2 0;
+
       overflow: hidden;
       ul {
         display: flex;

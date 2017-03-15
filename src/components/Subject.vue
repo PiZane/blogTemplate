@@ -47,12 +47,12 @@ $gray: #D0D0D0;
 main {
   width: 100%;
   height: 100%;
+  overflow: auto;
   @media #{$tablet} {
     position: absolute;
     top: 0;
     left: 0;
   }
-  overflow: auto;
 }
 
 article {
