@@ -6,7 +6,6 @@
       </header>
       <div class="content">
         {{article.content}}
-        1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
       </div>
       <footer>
         <ul>
@@ -57,6 +56,7 @@ main {
 
 article {
   padding: 16px 32px;
+  width: 100%;
   height: 100%;
   max-width: 1024px;
   font-size: 20px;

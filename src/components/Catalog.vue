@@ -111,6 +111,9 @@ $gray:  #D0D0D0;
       color: rgba(34,38,41,0.7);
       cursor: pointer;
       transition: .3s;
+      @media #{$phone} {
+        cursor: default;
+      }
     }
     li:hover {
       background-color: $gray;
@@ -139,6 +142,9 @@ $gray:  #D0D0D0;
     @media #{$desktop} {
       display: none;
     }
+    @media #{$phone} {
+      cursor: default;
+    }
   }
   i:hover {
     background-color: $gray;
@@ -156,7 +162,6 @@ $gray:  #D0D0D0;
   }
   ::-webkit-scrollbar {
     width: 1px;
-    background-color: #BBB;
   }
   ::-webkit-scrollbar-thumb {
     background-color: #AAA;

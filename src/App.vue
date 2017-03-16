@@ -1,7 +1,7 @@
 <template>
 <div id="app">
-  <div v-bind:class="{side:1, show: isShow}">
-    <navbar></navbar>
+  <div v-bind:class="{side:1, show: sideShow}">
+    <navbar :initData="initData.navbar"></navbar>
     <catalog v-on:toggleSide="toggleSide"></catalog>
   </div>
   <subject></subject>
@@ -15,17 +15,18 @@ import Subject from './components/Subject'
 
 export default {
   name: 'app',
+  props: ['initData'],
   data () {
     return {
-      isShow: 0
+      sideShow: 0
     }
   },
   methods: {
     toggleSide: function() {
-      if (this.isShow) {
-        this.isShow = 0;
+      if (this.sideShow) {
+        this.sideShow = 0;
       } else {
-        this.isShow = 1;
+        this.sideShow = 1;
       }
     }
   },
@@ -41,7 +42,7 @@ export default {
 $phone: "(max-width: 767px)";
 $tablet: "(min-width: 768px) and (max-width: 1023px)";
 $desktop: "(min-width: 1024px)";
-
+$sideTransition: cubic-bezier(1, 0, .1, 1) .6s;
 * {
   margin: 0;
   padding: 0;
@@ -69,7 +70,7 @@ body {
   overflow: hidden;
   @media #{$phone} {
     display: block;
-    min-height: 100%;
+    position: relative;
   }
 }
 
@@ -78,7 +79,7 @@ body {
   align-items: stretch;
   width: 600px;
   height: 100%;
-  transition: ease-out .5s;
+  transition: $sideTransition;
   z-index: 1;
   @media #{$phone} {
     position: absolute;
@@ -94,7 +95,18 @@ body {
 
 .show {
   transform: translateX(0);
-  transition: ease-out .5s;
+  transition: $sideTransition;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #BBB;
+  @media #{$phone} {
+    width: 2px;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999;
+}
 </style>

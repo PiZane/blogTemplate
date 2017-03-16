@@ -9,6 +9,9 @@ Vue.use(VueResource);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  template: '<App/>',
+  data: {
+    initData
+  },
+  template: '<app :initData="initData"></app>',
   components: { App }
 })
