@@ -2,9 +2,9 @@
 <div id="app">
   <div v-bind:class="{side:1, show: sideShow}">
     <navbar :initData="initData.navbar"></navbar>
-    <catalog v-on:toggleSide="toggleSide"></catalog>
+    <catalog :initData="initData.catalog" v-on:toggleSide="toggleSide"></catalog>
   </div>
-  <subject></subject>
+  <subject :initData="initData.subject"></subject>
 </div>
 </template>
 

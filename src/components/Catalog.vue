@@ -15,14 +15,17 @@
 <script>
 export default {
   name: 'catalog',
+  props: ['initData'],
   created: function () {
     this.image.backgroundImage = this.right;
     this.$parent.$on('menuSelected', this.changeCatalog);
+    if (this.initData) {
+      this.articles = this.initData.articles;
+    }
   },
   data () {
     return {
       articles: [
-
       ],
       activeArticle: false,
       isShow: false,
@@ -36,9 +39,11 @@ export default {
   },
   methods: {
     changeCatalog: function (id) {
+      var _this = this;
       this.activeArticle = false;
-      this.$http.get('/api/articles').then(response => {
-        this.articles = response.body.data;
+      this.$ajax.get('/api/articles')
+      .then(function (response) {
+        _this.articles = response.data.data;
       });
     },
     toggleSide: function () {

@@ -23,8 +23,10 @@ export default {
     if (this.initData) {
       this.navbarData = this.initData;
     } else {
-      this.$http.get('/api/setting').then(response => {
-        this.navbarData = response.body.data;
+      this.$ajax.get('/api/setting')
+      .then(function (response) {
+        this.navbarData = response;
+        console.log(response);
       });
     }
   },

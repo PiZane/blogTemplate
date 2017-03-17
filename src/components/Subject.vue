@@ -19,8 +19,12 @@
 <script>
 export default {
   name: 'subject',
+  props: ['initData'],
   created: function () {
-    this.$parent.$on('articleSelected', this.changeArticle)
+    this.$parent.$on('articleSelected', this.changeArticle);
+    if (this.initData) {
+      this.article = this.initData;
+    }
   },
   data () {
     return {
@@ -29,8 +33,10 @@ export default {
   },
   methods: {
     changeArticle: function (id) {
-      this.$http.get('/api/article').then(response => {
-        this.article = response.body.data;
+      var _this = this;
+      this.$ajax.get('/api/article')
+      .then(function (response) {
+        _this.article = response.data.data;
       });
     }
   }
