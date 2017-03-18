@@ -18,15 +18,14 @@
 <script>
 export default {
   name: 'navbar',
-  props: ['initData'],
+  props: ['initData', 'api'],
   created () {
     if (this.initData) {
       this.navbarData = this.initData;
     } else {
-      this.$ajax.get('/api/setting')
+      this.$ajax.get(this.api)
       .then(function (response) {
         this.navbarData = response;
-        console.log(response);
       });
     }
   },

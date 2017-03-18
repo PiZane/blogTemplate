@@ -15,7 +15,7 @@
 <script>
 export default {
   name: 'catalog',
-  props: ['initData'],
+  props: ['initData', 'api'],
   created: function () {
     this.image.backgroundImage = this.right;
     this.$parent.$on('menuSelected', this.changeCatalog);
@@ -41,7 +41,7 @@ export default {
     changeCatalog: function (id) {
       var _this = this;
       this.activeArticle = false;
-      this.$ajax.get('/api/articles')
+      this.$ajax.get(this.api)
       .then(function (response) {
         _this.articles = response.data.data;
       });

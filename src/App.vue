@@ -1,10 +1,10 @@
 <template>
 <div id="app">
   <div v-bind:class="{side:1, show: sideShow}">
-    <navbar :initData="initData.navbar"></navbar>
-    <catalog :initData="initData.catalog" v-on:toggleSide="toggleSide"></catalog>
+    <navbar api="/api/setting" :initData="initData.navbar"></navbar>
+    <catalog api="/api/articles" :initData="initData.catalog" v-on:toggleSide="toggleSide"></catalog>
   </div>
-  <subject :initData="initData.subject"></subject>
+  <subject api="/api/article" :initData="initData.subject"></subject>
 </div>
 </template>
 
@@ -43,6 +43,7 @@ $phone: "(max-width: 767px)";
 $tablet: "(min-width: 768px) and (max-width: 1023px)";
 $desktop: "(min-width: 1024px)";
 $sideTransition: cubic-bezier(1, 0, .1, 1) .6s;
+
 * {
   margin: 0;
   padding: 0;
